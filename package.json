@@ -1,8 +1,8 @@
 {
   "name": "emotion-solid2",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Emotion JS support for Solid JS projects. This is improved fork of the original package",
-  "repository": "git@github.com:Salmela/emotion-solid.git",
+  "repository": "git@github.com:Salmela/emotion-solid2.git",
   "author": "Aleksi Salmela, Ari Seyhun <ariseyhun@live.com.au>",
   "license": "MIT",
   "private": false,
