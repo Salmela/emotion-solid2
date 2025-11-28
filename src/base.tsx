@@ -10,7 +10,6 @@ import {
   getDefaultShouldForwardProp,
   composeShouldForwardProps,
   StyledOptions,
-  PrivateStyledComponent,
   StyledElementType,
   CreateStyledFunction,
 } from './utils'
