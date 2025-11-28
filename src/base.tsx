@@ -10,7 +10,6 @@ import {
   getDefaultShouldForwardProp,
   composeShouldForwardProps,
   StyledOptions,
-  PrivateStyledComponent,
   StyledElementType,
   CreateStyledFunction,
 } from './utils'
@@ -30,7 +29,8 @@ const createStyled: CreateStyledFunction = (tag: any, options?: StyledOptions) =
       )
     }
   }
-  const isReal = tag.__emotion_real === tag
+  // tag.__emotion_real has never been assigned a value but is preventing from previous tag styles from getting into this one
+  const isReal = true // tag.__emotion_real === tag
   const baseTag = (isReal && tag.__emotion_base) || tag
 
   let identifierName: string | undefined
@@ -166,7 +166,7 @@ const createStyled: CreateStyledFunction = (tag: any, options?: StyledOptions) =
         <Dynamic
           component={finalTag}
           {...newProps}
-          className={
+          class={
             props.class ? `${className()} ${props.class}` : className()
           }
         />
@@ -184,10 +184,9 @@ const createStyled: CreateStyledFunction = (tag: any, options?: StyledOptions) =
             <style
               {...{
                 [`data-emotion`]: `${cache?.key} ${serializedNames}`,
-                dangerouslySetInnerHTML: { __html: rulesSerialized.rules },
                 nonce: cache?.sheet.nonce,
               }}
-            />
+            >{`${rulesSerialized.rules}`}</style>
             {element}
           </>
         )
